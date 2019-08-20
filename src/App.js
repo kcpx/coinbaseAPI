@@ -15,7 +15,6 @@ class App extends React.Component {
       error: ''
     }
   }
-
   render() {
     const urlParams = new URLSearchParams(window.location.search);
     const
@@ -23,9 +22,6 @@ class App extends React.Component {
     client_id = 'd5a24b7ece44c038cad39e166e91b95ed827a6c1f3d202dd6b115b4f908d9ba7',
     client_secret = '40b1ef90718ee32326f4e6cde06d9d4ae4c1ca8b3a380d82b8e0e80bc353f52e',
     redirect_uri = 'http://localhost:3000/';
-
-
-
 
 
     if (urlParams.get('code') != null) {
@@ -60,12 +56,8 @@ class App extends React.Component {
             console.log(e);
           }
 
-
-
         })
     }
-
-
 
     //function to show portfolio balance. Error with accesstoken
     function listAccounts() {
@@ -81,11 +73,7 @@ class App extends React.Component {
             });
           });
 
-
     }
-
-
-
 
     return (
       <div className="App">
@@ -97,7 +85,9 @@ class App extends React.Component {
               <p>Refresh Token : {this.state.refresh_token}</p>
               <p>Create At : {this.state.created_at}</p>
             </div>
-          <button className="btn btn-primary" onClick={() => window.open(`https://www.coinbase.com/oauth/authorize?response_type=code&client_id=${client_id}`, '_self')}>Send Request</button>
+          <button className="btn btn-primary" onClick={() => window.open('https://www.coinbase.com/oauth/authorize?client_id=d5a24b7ece44c038cad39e166e91b95ed827a6c1f3d202dd6b115b4f908d9ba7&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F&response_type=code&scope=wallet%3Auser%3Aread')}>Send Request</button>
+          <button className="btn btn-primary" onClick={() => listAccounts()}>portfolio</button>
+
         </header>
       </div>
 
@@ -105,10 +95,5 @@ class App extends React.Component {
 
   }
 }
-
-
-
-
-
 
 export default App;
