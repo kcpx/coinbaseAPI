@@ -19,8 +19,8 @@ class App extends React.Component {
     const urlParams = new URLSearchParams(window.location.search);
     const
     grant_type = 'authorization_code' ,
-    client_id = 'd5a24b7ece44c038cad39e166e91b95ed827a6c1f3d202dd6b115b4f908d9ba7',
-    client_secret = '40b1ef90718ee32326f4e6cde06d9d4ae4c1ca8b3a380d82b8e0e80bc353f52e',
+    client_id = 'e4ac2eb07157bde62fa7f0b91f69ec20fdb6fa1d852903aa754d763a6a0de22c',
+    client_secret = '6b53d4d106c59002760dd3084c9c691e135549892b56e54115ea4fb05986a7b7',
     redirect_uri = 'http://localhost:3000/';
 
 
@@ -37,14 +37,14 @@ class App extends React.Component {
         .then(res => {
           if (res) {
             console.log(res.data);
-            this.setState({
-              access_token: res.data.access_token,
-              token_type: res.data.token_type,
-              expires_in: res.data.expires_in,
-              refresh_token: res.data.refresh_token,
-              created_at: res.data.created_at,
-              error: 'none'
-            });
+            // this.setState({
+            //   access_token: res.data.access_token,
+            //   token_type: res.data.token_type,
+            //   expires_in: res.data.expires_in,
+            //   refresh_token: res.data.refresh_token,
+            //   created_at: res.data.created_at,
+            //   error: 'none'
+            // });
 
            window.history.pushState({ page: "another" }, "another page", "example.html");
 
@@ -57,6 +57,7 @@ class App extends React.Component {
           }
 
         })
+
     }
 
     //function to show portfolio balance. Error with accesstoken
@@ -79,13 +80,13 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
             <div>
-              <p>Access Token : {this.state.access_token}</p>
+              <p>Access Token : {access_token}</p>
               <p>Token Type : {this.state.token_type}</p>
               <p>Expire In : {this.state.expires_in}</p>
               <p>Refresh Token : {this.state.refresh_token}</p>
               <p>Create At : {this.state.created_at}</p>
             </div>
-          <button className="btn btn-primary" onClick={() => window.open('https://www.coinbase.com/oauth/authorize?client_id=d5a24b7ece44c038cad39e166e91b95ed827a6c1f3d202dd6b115b4f908d9ba7&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F&response_type=code&scope=wallet%3Auser%3Aread')}>Send Request</button>
+          <button className="btn btn-primary" onClick={() => window.open('https://www.coinbase.com/oauth/authorize?client_id=e4ac2eb07157bde62fa7f0b91f69ec20fdb6fa1d852903aa754d763a6a0de22c&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F&response_type=code&scope=wallet%3Auser%3Aread')}>Send Request</button>
           <button className="btn btn-primary" onClick={() => listAccounts()}>portfolio</button>
 
         </header>
