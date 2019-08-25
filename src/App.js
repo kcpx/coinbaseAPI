@@ -88,7 +88,7 @@ componentDidMount(){
       const { access_token } = this.state
 
         axios.get('https:api.coinbase.com/v2/user',  { Content-Type :`'Authorization: Bearer ${access_token}'`}
-    
+
       ).then(res => JSON.stringify(res)).then(res => this.setState({ nameItLater: JSON.parse(res)}))
 
 
